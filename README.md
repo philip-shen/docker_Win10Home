@@ -5,6 +5,8 @@ Implementation
 ==============================
 * Step 1
 Make sure CPU virtualization fucntion of BIOS on your Laptop is enable.
+* [Windows 10 - How to enter BIOS configuration?](https://www.youtube.com/watch?v=HQXFd0CN4s8&feature=youtu.be)
+
 And refer Task Manager:
 ![alt tag](https://i.imgur.com/LEtsMSW.jpg)
 
@@ -46,13 +48,13 @@ docker-compose --version
 Setup "Shared Drives"
 ![alt tag](https://i.imgur.com/nkCitB2.jpg)
 
-Enjoy!
+Enjoy Docker!
 
 
 Environment
 ==============================
 ``` 
-o Win 10 Home。
+o Win 10 Home Version1803(OS Build 17134.590) 。
 o Docker Desktop 2.0.0.3
 ``` 
 
