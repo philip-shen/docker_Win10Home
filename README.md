@@ -33,7 +33,8 @@ And install "Docker for Windows Installer.exe"
 ![alt tag](https://i.imgur.com/MQZ2kFV.jpg)
 
 * Step 5
-Make sure Docker successful installation. 
+Make sure Docker successful installation.
+
 ![alt tag](https://i.imgur.com/ac3U1m0.jpg)
 
 ``` 
