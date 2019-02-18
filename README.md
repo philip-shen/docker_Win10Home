@@ -4,6 +4,7 @@ Docker tutorial that is installed on Win10 Home by Hyper-V rather than toolbox
 Docker related images of foundation function
 ==============================
 ![alt tag](https://camo.qiitausercontent.com/e29da7153d29910bfc4159c18e943269630ced88/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3138383534342f38336266646465372d353462332d323330632d653236352d3435343162333461393965312e706e67)
+* [Dockerの基本機能と全体像のイメージを整理してみる](https://qiita.com/fkooo/items/934c7b6f1f0c0e8d1b21)
 
 Implementation
 ==============================
@@ -66,8 +67,11 @@ Reference
 ==============================
 * [Docker 基本教學](https://github.com/twtrubiks/docker-tutorial)
 * [Installing Docker on Windows 10 Home](https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/24)
-* [如何在 Windows 10 Home 安裝 Docker ?](https://oomusou.io/docker/toolbox/)
+* [如何在 Windows 10 Home 安裝 Docker ? by ToolBox](https://oomusou.io/docker/toolbox/)
 * [Dockerの基本機能と全体像のイメージを整理してみる](https://qiita.com/fkooo/items/934c7b6f1f0c0e8d1b21)
+
+* [在 Win10 安裝 Jekyll 部落格網站產生器及簡單起步教學](https://blog.jaycetyle.com/2018/01/jekyll-on-win10/)
+
 
 * []()
 ![alt tag]()
