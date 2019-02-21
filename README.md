@@ -55,6 +55,14 @@ Setup "Shared Drives"
 
 Enjoy Docker!
 
+TroubleShooting
+==============================
+* Client.Timeout exceeded while awaiting headers
+
+Unfortunately answers above didn't help in my case, but restarting Docker did.
+![alt tag](https://i.stack.imgur.com/WORpt.png)
+
+* [Docker Toolbox Tutorial Client.Timeout exceeded while awaiting headers](https://stackoverflow.com/questions/46822391/docker-toolbox-tutorial-client-timeout-exceeded-while-awaiting-headers)
 
 Environment
 ==============================
@@ -69,6 +77,7 @@ Reference
 * [Installing Docker on Windows 10 Home](https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/24)
 * [如何在 Windows 10 Home 安裝 Docker ? by ToolBox](https://oomusou.io/docker/toolbox/)
 * [Dockerの基本機能と全体像のイメージを整理してみる](https://qiita.com/fkooo/items/934c7b6f1f0c0e8d1b21)
+* [Dockerを使って機械学習の環境を作ろうとした話](https://qiita.com/oq-Yuki-op/items/3b7a0f1e27bbab56a95f)
 
 * [在 Win10 安裝 Jekyll 部落格網站產生器及簡單起步教學](https://blog.jaycetyle.com/2018/01/jekyll-on-win10/)
 
