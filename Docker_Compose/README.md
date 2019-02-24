@@ -150,11 +150,11 @@ testserver:
 
 
 *docker-compose up*
-    docker-compose.ymlを使って複数のコンテナの生成／起動を行う
+docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
-    -f でdocker-compose.ymlのファイル指定が可能
-    -f がなければカレントにあるdocker-compose.ymlを使う
-    -d でバックグラウンド起動する
+-f でdocker-compose.ymlのファイル指定が可能
+-f がなければカレントにあるdocker-compose.ymlを使う
+-d でバックグラウンド起動する
 
     ```
     > docker-compose -f webdb-docker-compose.yml up -d
@@ -164,7 +164,7 @@ testserver:
     Creating wordpress_webserver_1 ... done
     ```
 
-    webdb-docker-compose.yml
+webdb-docker-compose.yml
 
     ```
     webserver:
@@ -180,7 +180,7 @@ testserver:
     MYSQL_ROOT_PASSWORD: password
     ```
 
-    コンテナ起動を確認
+コンテナ起動を確認
 
     ```
     > docker ps
@@ -188,11 +188,11 @@ testserver:
     d9c5c3b521a5        wordpress           "docker-entrypoint..."   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   wordpress_webserver_1
     f02a94dcee33        mysql               "docker-entrypoint..."   About a minute ago   Up About a minute   3306/tcp             wordpress_dbserver_1
     ```
-    コンテナ名は正確には「実行フォルダ_docker-compose.ymlのコンテナ名_通番」なるらしい
-    そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
+コンテナ名は正確には「実行フォルダ_docker-compose.ymlのコンテナ名_通番」なるらしい
+そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
 
 *docker-compose scale コンテナ名=数*
-    起動コンテナ数を指定する時に使用する
+起動コンテナ数を指定する時に使用する
 
     ```
     > docker-compose scale webserver=1 dbserver=2
@@ -206,8 +206,8 @@ testserver:
 
     ```
 
-    複数起動時に矛盾が発生する場合はエラーが発生する
-    例えばwebserverを2つ起動する場合は80ポートが競合する、、、  
+複数起動時に矛盾が発生する場合はエラーが発生する
+例えばwebserverを2つ起動する場合は80ポートが競合する、、、  
 
     ```
     > docker-compose scale webserver=2 dbserver=1
