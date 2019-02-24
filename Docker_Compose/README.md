@@ -149,7 +149,7 @@ testserver:
 # Command of docker-compose while container creations by docker-compose.yml
 
 
-##docker-compose up
+## docker-compose up
 docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
 -f でdocker-compose.ymlのファイル指定が可能
@@ -190,7 +190,7 @@ f02a94dcee33        mysql               "docker-entrypoint..."   About a minute 
 コンテナ名は正確には「実行フォルダ_docker-compose.ymlのコンテナ名_通番」なるらしい
 そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
 
-##docker-compose scale コンテナ名=数
+## docker-compose scale コンテナ名=数
 
 起動コンテナ数を指定する時に使用する
 ```
@@ -219,7 +219,7 @@ ERROR: for wordpress_webserver_1  Cannot start service webserver: driver failed 
 ERROR: Cannot start service webserver: driver failed programming external connectivity on endpoint wordpress_webserver_1 (e1a6f29e4ec9f31c40b5470cf9109c98765c5a7e03a10013758063beb54b8436): Bind for 0.0.0.0:80 failed: port is already allocated
 ```
 
-##docker-compose ps
+## docker-compose ps
 
 複数コンテナの一覧表示を行う
 docker psコマンドと比較すると気持ちシンプル表示になっている？
@@ -239,7 +239,7 @@ cde58d78dc3d        mysql               "docker-entrypoint..."   5 minutes ago  
 816fcbe2c4f7        wordpress           "docker-entrypoint..."   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp   wordpress_webserver_1
 ```
 
-##docker-compose logs
+## docker-compose logs
 
 コンテナのログを確認する場合に使用する
 コンテナごとのログが表示される
@@ -257,7 +257,7 @@ dbserver_2   | 2018-01-27T02:09:56.887342Z 0 [Warning] TIMESTAMP with implicit D
 ～～～省略～～～
 ```
 
-##docker-compose run コンテナ名 実行コマンド
+## docker-compose run コンテナ名 実行コマンド
 
 起動したコンテナに新たにコマンドを実行する場合に使用する
 runのあとにコンテナ名を指定すると指定したコンテナだけの操作となる（他のコマンドでも同様）
@@ -269,7 +269,7 @@ Starting wordpress_dbserver_2 ... done
 root@8271d38f7036:/var/www/html#
 ```
 
-##docker-compose start
+## docker-compose start
 
 複数のコンテナを一括で起動する場合に使用する
 ```
@@ -285,7 +285,7 @@ wordpress_dbserver_2    docker-entrypoint.sh mysqld      Up      3306/tcp
 wordpress_webserver_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-##docker-compose stop
+## docker-compose stop
 
 複数のコンテナを一括で停止する場合に使用する
 ```
@@ -295,7 +295,7 @@ Stopping wordpress_dbserver_2  ... done
 Stopping wordpress_webserver_1 ... done
 ```
 
-##docker-compose restart
+## docker-compose restart
 
 複数のコンテナを一括で再起動する場合に使用する
 ```
@@ -305,7 +305,7 @@ Restarting wordpress_dbserver_2  ... done
 Restarting wordpress_webserver_1 ... done
 ```
 
-##docker-compose kill
+## docker-compose kill
 
 複数のコンテナを一括で強制停止する場合に使用する
 ```
@@ -322,7 +322,7 @@ wordpress_dbserver_2    docker-entrypoint.sh mysqld      Exit 137
 wordpress_webserver_1   docker-entrypoint.sh apach ...   Exit 137
 ```
 
-##docker-compose rm
+## docker-compose rm
 
 複数のコンテナを一括で削除する場合に使用する
 ```
