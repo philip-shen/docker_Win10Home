@@ -36,7 +36,7 @@ docker-machine rm マシン名
 
 ## Add Virutal Switch procedure
 
-Start Hyper-V machine, 
+Start Hyper-V machine,
 ![alt tag](https://i.imgur.com/idUfPRQ.jpg)
 
 And then select Virtual Switch Management.
