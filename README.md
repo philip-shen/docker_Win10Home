@@ -60,6 +60,7 @@ TroubleShooting
 * Client.Timeout exceeded while awaiting headers
 
 Unfortunately answers above didn't help in my case, but restarting Docker did.
+
 ![alt tag](https://i.stack.imgur.com/WORpt.png)
 
 * [Docker Toolbox Tutorial Client.Timeout exceeded while awaiting headers](https://stackoverflow.com/questions/46822391/docker-toolbox-tutorial-client-timeout-exceeded-while-awaiting-headers)
