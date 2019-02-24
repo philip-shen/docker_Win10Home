@@ -149,7 +149,7 @@ testserver:
 * Command of docker-compose while container creations by docker-compose.yml
 
 
-**docker-compose up**
+*docker-compose up*
     docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
     -f でdocker-compose.ymlのファイル指定が可能
@@ -165,7 +165,7 @@ testserver:
     ```
 
     webdb-docker-compose.yml
-    
+
     ```
     webserver:
     image: wordpress
@@ -191,7 +191,7 @@ testserver:
     コンテナ名は正確には「実行フォルダ_docker-compose.ymlのコンテナ名_通番」なるらしい
     そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
 
-**docker-compose scale コンテナ名=数**
+*docker-compose scale コンテナ名=数*
     起動コンテナ数を指定する時に使用する
 
     ```
