@@ -5,7 +5,7 @@ Introdcution
 ==============================
 Web system consists of various serves such as WEB serve, AP serve and DB serve so that manages by Docker Compose.
 
-* Commands related Docker 
+# Commands related Docker 
 ``` 
 docker run --link 接続したいコンテナ名：エイリアス名 イメージ名 実行コマンド
 docker-compose up
@@ -149,35 +149,78 @@ testserver:
 * Command of docker-compose while container creations by docker-compose.yml
 
 
-*docker-compose up*
+**docker-compose up**
 
-docker-compose.ymlを使って複数のコンテナの生成／起動を行う
+    docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
--f でdocker-compose.ymlのファイル指定が可能
--f がなければカレントにあるdocker-compose.ymlを使う
--d でバックグラウンド起動する
-```
-> docker-compose -f webdb-docker-compose.yml up -d
-Creating wordpress_dbserver_1 ...
-Creating wordpress_dbserver_1 ... done
-Creating wordpress_webserver_1 ...
-Creating wordpress_webserver_1 ... done
-```
+    -f でdocker-compose.ymlのファイル指定が可能
+    -f がなければカレントにあるdocker-compose.ymlを使う
+    -d でバックグラウンド起動する
 
-webdb-docker-compose.yml
-```
-webserver:
- image: wordpress
- ports:
-  - "80:80"
- links:
-  - dbserver:mysql
+    ```
+    > docker-compose -f webdb-docker-compose.yml up -d
+    Creating wordpress_dbserver_1 ...
+    Creating wordpress_dbserver_1 ... done
+    Creating wordpress_webserver_1 ...
+    Creating wordpress_webserver_1 ... done
+    ```
 
-dbserver:
- image: mysql
- environment:
-  MYSQL_ROOT_PASSWORD: password
-```
+    webdb-docker-compose.yml
+    ```
+    webserver:
+    image: wordpress
+    ports:
+    - "80:80"
+    links:
+    - dbserver:mysql
+
+    dbserver:
+    image: mysql
+    environment:
+    MYSQL_ROOT_PASSWORD: password
+    ```
+
+    コンテナ起動を確認
+
+    ```
+    > docker ps
+    CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                NAMES
+    d9c5c3b521a5        wordpress           "docker-entrypoint..."   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   wordpress_webserver_1
+    f02a94dcee33        mysql               "docker-entrypoint..."   About a minute ago   Up About a minute   3306/tcp             wordpress_dbserver_1
+    ```
+    コンテナ名は正確には「実行フォルダ_docker-compose.ymlのコンテナ名_通番」なるらしい
+    そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
+
+**docker-compose scale コンテナ名=数**
+    起動コンテナ数を指定する時に使用する
+
+    ```
+    > docker-compose scale webserver=1 dbserver=2
+    WARNING: The scale command is deprecated. Use the up command with the --scale flag instead.
+    Creating wordpress_webserver_1 ...
+    Creating wordpress_webserver_1 ... done
+    Creating wordpress_dbserver_1 ...
+    Creating wordpress_dbserver_2 ...
+    Creating wordpress_dbserver_1 ... done
+    Creating wordpress_dbserver_2 ... done
+
+    ```
+
+    複数起動時に矛盾が発生する場合はエラーが発生する
+    例えばwebserverを2つ起動する場合は80ポートが競合する、、、  
+
+    ```
+    > docker-compose scale webserver=2 dbserver=1
+    WARNING: The scale command is deprecated. Use the up command with the --scale flag instead.
+    WARNING: The "webserver" service specifies a port on the host. If multiple containers for this service are created on a single host, the port will clash.
+    Creating wordpress_webserver_1 ...
+    Creating wordpress_webserver_2 ...
+    Creating wordpress_webserver_1 ... error
+    Creating wordpress_webserver_2 ... done
+
+    ERROR: for wordpress_webserver_1  Cannot start service webserver: driver failed programming external connectivity on endpoint wordpress_webserver_1 (e1a6f29e4ec9f31c40b5470cf9109c98765c5a7e03a10013758063beb54b8436): Bind for 0.0.0.0:80 failed: port is already allocated
+    ERROR: Cannot start service webserver: driver failed programming external connectivity on endpoint wordpress_webserver_1 (e1a6f29e4ec9f31c40b5470cf9109c98765c5a7e03a10013758063beb54b8436): Bind for 0.0.0.0:80 failed: port is already allocated
+    ```
 
 # Other commands
 ```
@@ -231,7 +274,7 @@ o Docker Desktop 2.0.0.3
 
 Reference 
 ==============================
-* [Docker for Windowsでイメージからコンテナを生成／操作してみる](https://qiita.com/fkooo/items/ad7d023b59df71cc9a60)
+* [WindowsでDocker Composeを使ってマルチコンテナ環境を作ってみる](https://qiita.com/fkooo/items/69a050da265c712763ec)
 
 
 * []()
