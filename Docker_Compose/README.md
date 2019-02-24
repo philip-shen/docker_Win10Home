@@ -153,9 +153,10 @@ testserver:
 docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
 -f でdocker-compose.ymlのファイル指定が可能
--f がなければカレントにあるdocker-compose.ymlを使う
--d でバックグラウンド起動する
 
+-f がなければカレントにあるdocker-compose.ymlを使う
+
+-d でバックグラウンド起動する
     ```
     > docker-compose -f webdb-docker-compose.yml up -d
     Creating wordpress_dbserver_1 ...
@@ -165,7 +166,6 @@ docker-compose.ymlを使って複数のコンテナの生成／起動を行う
     ```
 
 webdb-docker-compose.yml
-
     ```
     webserver:
     image: wordpress
@@ -181,7 +181,6 @@ webdb-docker-compose.yml
     ```
 
 コンテナ起動を確認
-
     ```
     > docker ps
     CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                NAMES
@@ -192,8 +191,8 @@ webdb-docker-compose.yml
 そのためdocker-compose.yml記載のコンテナ名はサービス名と言われる
 
 *docker-compose scale コンテナ名=数*
-起動コンテナ数を指定する時に使用する
 
+起動コンテナ数を指定する時に使用する
     ```
     > docker-compose scale webserver=1 dbserver=2
     WARNING: The scale command is deprecated. Use the up command with the --scale flag instead.
@@ -208,7 +207,6 @@ webdb-docker-compose.yml
 
 複数起動時に矛盾が発生する場合はエラーが発生する
 例えばwebserverを2つ起動する場合は80ポートが競合する、、、  
-
     ```
     > docker-compose scale webserver=2 dbserver=1
     WARNING: The scale command is deprecated. Use the up command with the --scale flag instead.
