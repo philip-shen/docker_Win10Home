@@ -20,7 +20,7 @@ docker-compose kill
 docker-compose rm
 ``` 
 
-* YAML format for docker-compose.yml
+# YAML format for docker-compose.yml
 
 ``` 
 indent means hierarchy.
@@ -30,7 +30,7 @@ Container without image name in first line, assign container name.
 (インデントなしの行の先頭に定義するコンテナの種類ごとにコンテナ名を指定する)
 ``` 
 
-* image 
+## image 
 
 ``` 
 testserver:
@@ -38,7 +38,7 @@ testserver:
 ``` 
 Container name is testserver.
 
-* build
+## build
 
 ``` 
 testserver:
@@ -46,9 +46,9 @@ testserver:
 ``` 
 In docker-compose.yml, image／build must be assinged.
 
-* command
+## command
 
-コマンド実行を行う場合はコマンドを指定する
+> コマンド実行を行う場合はコマンドを指定する
 ``` 
 testserver:
  image: ubuntu
@@ -56,7 +56,7 @@ testserver:
  command: /bin/bash
 ``` 
 
-* links／external_links container:alias
+## links／external_links container:alias
 
 ``` 
 testserver:
@@ -68,11 +68,11 @@ testserver:
 links指定は同一のdocker-compose.ymlに定義があるコンテナのみ指定可能であることに対し、external_linksは外部の別のコンテナとリンク機能を使って連携するときに指定する
 docker-compose.ymlを使用しない場合は、以下のコマンドでdocker run時にもリンク機能の指定が可能
 
-* docker run --link 接続したいコンテナ名：エイリアス名 イメージ名 実行コマンド
+## docker run --link 接続したいコンテナ名：エイリアス名 イメージ名 実行コマンド
 引数で指定したコンテナに対し環境変数に自動的に設定してくれる
 ただし、同一ホストマシン上で起動しているコンテナ間でしか、アクセスできないという制限がある
 
-* ports／expose port number
+## ports／expose port number
 
 「port num of host machine:port num of container」の形式でホストマシンのポートを明示的に指定することもできるが、記載がなければランダムなポートが使用される
 ``` 
@@ -93,9 +93,9 @@ testserver:
   - "8000"
 ``` 
 
-* volumes mount point
+## volumes mount point
 
-ホスト側でマウントするパスを指定する場合は、「folder path of host machine:folder path of container」の形式で指定する
+> ホスト側でマウントするパスを指定する場合は、「folder path of host machine:folder path of container」の形式で指定する
 ```
 testserver:
  image: ubuntu
@@ -104,9 +104,9 @@ testserver:
   - /var/lib/mysql
 ```
 
-* volumes_from マウント先のコンテナ名
+## volumes_from マウント先のコンテナ名
 
-volume of specific container をmountする場合に使用する
+> volume of specific container をmountする場合に使用する
 ```
 testserver:
  image: ubuntu
@@ -115,9 +115,9 @@ testserver:
   - dataserver
 ```
 
-* environment 環境変数名=値
+## environment 環境変数名=値
 
-環境変数を指定する場合に使用する
+> 環境変数を指定する場合に使用する
 ```
 testserver:
  image: ubuntu
@@ -126,7 +126,7 @@ testserver:
   - HOGE=hoge
 ```
 
-* container_name
+## container_name
 
 ```
 testserver:
@@ -135,9 +135,9 @@ testserver:
  container_name: webserver
 ```
 
-* labels 
+## labels 
 
-コンテナにラベルを付けるときに使用する
+> コンテナにラベルを付けるときに使用する
 ```
 testserver:
  image: ubuntu
@@ -150,12 +150,10 @@ testserver:
 
 
 ## docker-compose up
-docker-compose.ymlを使って複数のコンテナの生成／起動を行う
+> docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
 -f でdocker-compose.ymlのファイル指定が可能
-
 -f がなければカレントにあるdocker-compose.ymlを使う
-
 -d でバックグラウンド起動する
 ```
 > docker-compose -f webdb-docker-compose.yml up -d
@@ -180,7 +178,7 @@ dbserver:
   MYSQL_ROOT_PASSWORD: password
 ```
 
-コンテナ起動を確認
+Check process of conatiner
 ```
 > docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                NAMES
@@ -192,7 +190,7 @@ f02a94dcee33        mysql               "docker-entrypoint..."   About a minute 
 
 ## docker-compose scale コンテナ名=数
 
-起動コンテナ数を指定する時に使用する
+> 起動コンテナ数を指定する時に使用する
 ```
 > docker-compose scale webserver=1 dbserver=2
 WARNING: The scale command is deprecated. Use the up command with the --scale flag instead.
@@ -332,49 +330,6 @@ Are you sure? [yN] y
 Removing wordpress_dbserver_1      ... done
 Removing wordpress_dbserver_2      ... done
 Removing wordpress_webserver_1     ... done
-```
-
-# Other commands
-```
-> docker run -e env_varable=value
-> docker run -w directory
-```
-
-```
-> docker stats test01
-
-CONTAINER           CPU %               MEM USAGE / LIMIT    MEM %               NET I/O             BLOCK I/O           PIDS
-test01              0.01%               5.48MiB / 973.7MiB   0.56%               828B / 0B           2.92MB / 0B         82
-```
-
-```
-> docker restart test03
-```
-
-```
-> docker pause test03
-
-> docker unpause test03
-```
-
-```
-> docker attach test03
-```
-
-```
-> docker top test03
-```
-
-```
-> docker port test03
-```
-
-```
-> docker version
-```
-
-```
-> docker info
 ```
 
 Environment
