@@ -150,7 +150,6 @@ testserver:
 
 
 **docker-compose up**
-
     docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
     -f でdocker-compose.ymlのファイル指定が可能
@@ -166,6 +165,7 @@ testserver:
     ```
 
     webdb-docker-compose.yml
+    
     ```
     webserver:
     image: wordpress
