@@ -153,7 +153,9 @@ testserver:
 > docker-compose.ymlを使って複数のコンテナの生成／起動を行う
 
 -f でdocker-compose.ymlのファイル指定が可能
+
 -f がなければカレントにあるdocker-compose.ymlを使う
+
 -d でバックグラウンド起動する
 ```
 > docker-compose -f webdb-docker-compose.yml up -d
