@@ -58,6 +58,7 @@ Enjoy Docker!
 TroubleShooting
 ==============================
 * Client.Timeout exceeded while awaiting headers
+![alt tag](https://i.stack.imgur.com/4MSYK.jpg)
 
 Unfortunately answers above didn't help in my case, but restarting Docker did.
 
