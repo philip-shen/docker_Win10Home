@@ -83,7 +83,8 @@ Reference
 * [Dockerを使って機械学習の環境を作ろうとした話](https://qiita.com/oq-Yuki-op/items/3b7a0f1e27bbab56a95f)
 
 * [在 Win10 安裝 Jekyll 部落格網站產生器及簡單起步教學](https://blog.jaycetyle.com/2018/01/jekyll-on-win10/)
-
+* [[Tool] Cmder 設定 ](https://zwindr.blogspot.com/2016/01/cmder-setting-1.html)
+* [cmder 配置使用指南](https://www.jianshu.com/p/979db1a96f6d)
 
 * []()
 ![alt tag]()
