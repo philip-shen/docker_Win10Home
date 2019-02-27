@@ -4,7 +4,7 @@
 Goal
 ==============================
 
-Hand on Docker operation
+Hand on Docker operation, 
 Practice Docker to build a image to creat a conatiner
 
 
@@ -58,7 +58,7 @@ FROM python:3.7.2-slim
 # ARGで変数を定義
 # buildする時に変更可能
 # コンテナ内のディレクトを決めておく
-ARG root_directory=/sample001
+ARG root_directory=D:\project\docker\sample001
 
 # python3 pipのインストール
 RUN apt-get update && apt-get install -y \
@@ -105,7 +105,7 @@ e545f39a0e31: Pull complete
 Digest: sha256:64d2fc0ac09ae6ec501651de34c5921f0dbfcfbe28b00ab34affeccf4f547464
 Status: Downloaded newer image for python:3.7.2-slim
  ---> bc5085cee55b
-Step 2/7 : ARG root_directory=/sample001
+Step 2/7 : ARG root_directory=D:\project\docker\sample001
  ---> Running in b85a1023342d
 Removing intermediate container b85a1023342d
  ---> 583eb97e95c3
@@ -133,7 +133,7 @@ Successfully tagged python_image:latest
 SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 ``` 
 
-### Check image if exists or note?
+### Check image if exists or not?
 ``` 
 d:\project\docker\sample001>docker images
 REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
@@ -296,6 +296,32 @@ I solve it by simply run this safe command
 
 docker volume prune
 ```
+
+* [Running Windows 10 Ubuntu Bash in Cmder](https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/)
+* [Windows Bash won't open in 10 Anniversary Update](https://superuser.com/questions/1112429/windows-bash-wont-open-in-10-anniversary-update)
+```
+Prerequisites
+
+Actually, you just need Bash on Ubuntu on Windows enabled and, of course Cmder. If you don’t have that, you can simply follow these instructions:
+
+  Install Bash On Ubuntu on Windows
+   Download and unzip Cmder to a convenient place on your disk. Then start Cmder.exe.
+```
+* [How to Install and Use the Linux Bash Shell on Windows 10](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
+
+* [Installing Ubuntu on Windows 10 Without Using the Windows Store](https://www.dennisnguyen.net/2018/08/15/installing-ubuntu-on-windows-10-without-using-the-windows-store/)
+* [Manually download Windows Subsystem for Linux distro packages](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
+```
+Download using curl
+
+curl.exe -L -o ubuntu-1604.appx https://aka.ms/wsl-ubuntu-1604
+```
+
+* [Windows Subsystem for Linux: Error 0x80070005 (Access Denied) October 11, 2017](https://adrift.io/2017/10/11/windows-subsystem-for-linux-error-0x80070005-access-denied/)
+>That’s not cool though, we want to reach these things remotely and invoke things in an automation-friendly way. As it turns out, there are a couple of things preventing you from achieving this. Primarily:
+Local launch and activation permissions on the Linux Subsystem / LXSS (as it’s referenced internally) DCOM configuration object.
+Registry permissions which prevent you from modifying the above.
+* [Can't install apps from Store, error 0x80070005 3/30/2018](https://answers.microsoft.com/en-us/windows/forum/windows_8-windows_store/cant-install-apps-from-store-error-0x80070005/1da61861-26ee-41b4-ada9-8ac516b0107a?page=3)
 
 * []()
 ![alt tag]()
