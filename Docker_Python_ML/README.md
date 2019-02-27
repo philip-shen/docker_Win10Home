@@ -58,7 +58,7 @@ FROM python:3.7.2-slim
 # ARGで変数を定義
 # buildする時に変更可能
 # コンテナ内のディレクトを決めておく
-ARG root_directory=D:\project\docker\sample001
+ARG root_directory=/host_mnt/d/project/docker/sample001
 
 # python3 pipのインストール
 RUN apt-get update && apt-get install -y \
@@ -105,7 +105,7 @@ e545f39a0e31: Pull complete
 Digest: sha256:64d2fc0ac09ae6ec501651de34c5921f0dbfcfbe28b00ab34affeccf4f547464
 Status: Downloaded newer image for python:3.7.2-slim
  ---> bc5085cee55b
-Step 2/7 : ARG root_directory=D:\project\docker\sample001
+Step 2/7 : ARG root_directory=/host_mnt/d/project/docker/sample001
  ---> Running in b85a1023342d
 Removing intermediate container b85a1023342d
  ---> 583eb97e95c3
@@ -223,8 +223,8 @@ services:
       dockerfile: ./Dockerfile
     image: python_ml:3.7.2
     volumes:
-      - %cd%/src:/sample001/src
-      - %cd%/test:/sample001/test
+      - %cd%/src:/host_mnt/d/project/docker/sample001/src
+      - %cd%/test:/host_mnt/d/project/docker/sample001/test
     ports:
       - 80:80
     tty: true
@@ -257,12 +257,44 @@ docker-composeのあるディレクトリに移動して
 
 以下のコマンドでイメージの作成からコンテナの起動まで全て行ってくれます。
 ```
-$ docker-compose up -d
+$ docker-compose up -dWARNING: The PWD variable is not set. Defaulting to a blank string.
+Creating network "sample001_default" with the default driver
+Building app
+Step 1/6 : FROM python:3.7.2-slim
+ ---> bc5085cee55b
+Step 2/6 : ARG root_directory=/host_mnt/d/project/docker/sample001
+ ---> Using cache
+ ---> 02e0712af72b
+Step 3/6 : RUN apt-get update && apt-get install -y     python3     python3-pip     && apt-get clean     && rm -rf /var/lib/apt/lists/*     && pip install --upgrade pip
+ ---> Using cache
+ ---> 98c0553742f9
+Step 4/6 : COPY . ${root_directory}/
+ ---> 23a11feb628d
+Step 5/6 : WORKDIR ${root_directory}/pip/
+ ---> Running in 20ee6b399e75
+Removing intermediate container 20ee6b399e75
+ ---> daf6ce3832a0
+Step 6/6 : RUN pip install -r requirements.txt
+
+~~~省略~~
+
+Successfully installed atomicwrites-1.3.0 attrs-18.2.0 cycler-0.10.0 kiwisolver-1.0.1 matplotlib-3.0.2 more-itertools-6.0.0 numpy-1.16.2 pandas-0.24.1 pluggy-0.9.0 py-1.8.0 pyparsing-2.3.1 pytest-4.3.0 python-dateutil-2.8.0 pytz-2018.9 six-1.12.0
+Removing intermediate container 058f402b26a9
+ ---> 498d46b608d3
+Successfully built 498d46b608d3
+Successfully tagged python_ml:3.7.2
+WARNING: Image for service app was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating python_app ... done
 ```
 
 あとはコンテナの内部に以下のコマンドで入ります。
 ```
 docker exec -it python_app /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+```
+
+```
+root@fc39ff57ea37:/# cat /host_mnt/d/project/docker/sample001/src/hello.py
+cat: /host_mnt/d/project/docker/sample001/src/hello.py: No such file or directory
 ```
 
 # Troubleshooting
@@ -299,14 +331,11 @@ docker volume prune
 
 * [Running Windows 10 Ubuntu Bash in Cmder](https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/)
 * [Windows Bash won't open in 10 Anniversary Update](https://superuser.com/questions/1112429/windows-bash-wont-open-in-10-anniversary-update)
-```
-Prerequisites
-
+>Prerequisites
 Actually, you just need Bash on Ubuntu on Windows enabled and, of course Cmder. If you don’t have that, you can simply follow these instructions:
+Install Bash On Ubuntu on Windows
+Download and unzip Cmder to a convenient place on your disk. Then start Cmder.exe.
 
-  Install Bash On Ubuntu on Windows
-   Download and unzip Cmder to a convenient place on your disk. Then start Cmder.exe.
-```
 * [How to Install and Use the Linux Bash Shell on Windows 10](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 
 * [Installing Ubuntu on Windows 10 Without Using the Windows Store](https://www.dennisnguyen.net/2018/08/15/installing-ubuntu-on-windows-10-without-using-the-windows-store/)
