@@ -4,12 +4,12 @@
 Goal_01
 ==============================
 Four elements as below:
-
+``` 
 ⓪Docker Engine
 ①Image
 ②Container
 ③Docker Registry (DockerHub)
-
+``` 
 ![alt tag](https://camo.qiitausercontent.com/11f8c7610bb55b39d3c15869154de12e27b4294f/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3230393930392f34353866333161662d646232302d666134612d316537622d3539666161666630376138302e706e67)
 
 Goal_02
@@ -24,7 +24,7 @@ Environment
 ==============================
 ``` 
 o ASUS VivoBook S14, Core-i3 8th, RAM:4GB。
-o Win 10 Home Version1803(OS Build 17134.590) 。
+o WSL on Win 10 Home Version1803(OS Build 17134.590) 。
 o Docker Desktop 2.0.0.3
 ``` 
 
@@ -33,6 +33,9 @@ Reference
 * [【図解】Dockerの全体像を理解する -前編-](https://qiita.com/kotaro-dr/items/b1024c7d200a75b992fc)
 * [【図解】Dockerの全体像を理解する -中編-](https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a)
 * [【図解】Dockerの全体像を理解する -後編-](https://qiita.com/kotaro-dr/items/40106f13d47bfcbc2572)
+
+* [UbuntuにDockerをインストールする 2018-07-26](https://qiita.com/ponyo_2nd/items/b18fc6cb011a8f1a9c41)
+* [Get Docker CE for Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 * [Mount current directory as a volume in Docker on Windows 10](https://stackoverflow.com/questions/41485217/mount-current-directory-as-a-volume-in-docker-on-windows-10)
 

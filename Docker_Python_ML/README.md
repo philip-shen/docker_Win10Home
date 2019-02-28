@@ -93,45 +93,12 @@ Delete cache
 
 ## Create image and active container
 
-``` d:\project\docker\sample001>docker build -t python_image .
-Sending build context to Docker daemon   5.12kB
-Step 1/7 : FROM python:3.7.2-slim
-3.7.2-slim: Pulling from library/python
-6ae821421a7d: Already exists
-759f8891d8a3: Pull complete
-4e25683ec213: Pull complete
-e545f39a0e31: Pull complete
-43d66734da83: Pull complete
-Digest: sha256:64d2fc0ac09ae6ec501651de34c5921f0dbfcfbe28b00ab34affeccf4f547464
-Status: Downloaded newer image for python:3.7.2-slim
- ---> bc5085cee55b
-Step 2/7 : ARG root_directory=/host_mnt/d/project/docker/sample001
- ---> Running in b85a1023342d
-Removing intermediate container b85a1023342d
- ---> 583eb97e95c3
-Step 3/7 : RUN apt-get update && apt-get install -y     python3     python3-pip     && apt-get clean     && rm -rf /var/lib/apt/lists/*     && pip install --upgrade pip
-
-~~~省略~~
-
-Step 4/7 : COPY . ${root_directory}/
- ---> 3d30e25a6142
-Step 5/7 : WORKDIR ${root_directory}/pip/
- ---> Running in 30e6f4fb6cfb
-Removing intermediate container 30e6f4fb6cfb
- ---> 2946924d0449
-Step 6/7 : RUN pip install -r requirements.txt
- ---> Running in f48b3cec4be4
-
-~~~省略~~
-
-Step 7/7 : WORKDIR ${root_directory}
- ---> Running in 7d9c943bed82
-Removing intermediate container 7d9c943bed82
- ---> b0a329f1a53d
-Successfully built b0a329f1a53d
-Successfully tagged python_image:latest
-SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 ``` 
+D:\project\docker\sample001
+λ docker build -t python_image .
+``` 
+![alt tag](https://i.imgur.com/Ykog674.jpg)
+![alt tag](https://i.imgur.com/MCJVV6U.jpg)
 
 ### Check image if exists or not?
 ``` 
@@ -141,31 +108,14 @@ python_image               latest              b0a329f1a53d        9 minutes ago
 python                     3.7.2-slim          bc5085cee55b        3 days ago          143MB
 ``` 
 
-``` 
-d:\project\docker\sample001>docker run -it --rm --name python_container python_image  /bin/bash
-root@c9cabcd8e2ca:/D:\project\docker\sample001/pip/D:\project\docker\sample001# pwd
-/D:\project\docker\sample001/pip/D:\project\docker\sample001
-root@c9cabcd8e2ca:/D:\project\docker\sample001/pip/D:\project\docker\sample001# cd ..
-root@c9cabcd8e2ca:/D:\project\docker\sample001/pip# ls
-D:\project\docker\sample001  requirements.txt
-root@c9cabcd8e2ca:/D:\project\docker\sample001/pip# cd ..
-root@c9cabcd8e2ca:/D:\project\docker\sample001# history
-    1  pwd
-    2  ls
-    3  ls -al
-    4  cd ..
-    5  ls
-    6  cd ..
-    7  history
-root@c9cabcd8e2ca:/D:\project\docker\sample001# !2
-ls
-Dockerfile  pip  src  test
-``` 
-
 ## Excute hello.py
 ``` 
-root@c9cabcd8e2ca:/D:\project\docker\sample001#python src/hello.py
+D:\project\docker\sample001
+λ docker run -it --rm --name python_contianer python_image /bin/bash
+root@0743ae3ad2ce:/host_mnt/d/project/docker/sample001/pip# cd ..
+root@0743ae3ad2ce:/host_mnt/d/project/docker/sample001# python src/hello.py
 hello
+root@0743ae3ad2ce:/host_mnt/d/project/docker/sample001#
 ``` 
 
 ### Check container if active
@@ -197,17 +147,18 @@ hello
 # Dockerfileを実行したディレクトにあるファイルを全てイメージにコピー
 COPY . ${root_directory}/
 ```
-buildをする際にイメージの中にファイルを含めています。
-
-つまり、このイメージをコンテナ化してもイメージに含まれているファイルしかコンテナには存在しないのです。
+while building image, file directory is included in images.
 
 ```
 $ docker run -v #{directory of host machine}:#{directory of conatiner}
 ```
 
 ```
-
+D:\project\docker\sample001
+λ docker run -it --rm -v %cd%/src:/host_mnt/d/project/docker/sample001/src --name python_contianer python_image /bin/bash
 ```
+
+![alt tag](https://i.imgur.com/F6dXwfT.jpg)
 
 ## Make easier by docker-compose
 docker-compose
@@ -322,6 +273,9 @@ In PowerShell, you use ${PWD}, which gives you the current directory:
 ```
 docker run --rm -it -v ${PWD}:/usr/src/project gcc:4.9
 ```
+
+* [Volume mounts in windows does not work](https://forums.docker.com/t/volume-mounts-in-windows-does-not-work/10693/161)
+
 * [Errror mkdir /host_mnt/c: file exists when restarting docker container with mount](https://github.com/docker/for-win/issues/1560)
 ```
 I solve it by simply run this safe command
