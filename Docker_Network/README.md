@@ -20,7 +20,7 @@ Hyper-V Virtual Ethernet Adapter#2 for Docker Desktop
 
 ####  Red Block shows default route
 ####  Organe Block shows 10.0.75.0/24 route
-####  Blue  Block shows 10.0.75.0/32 route
+####  Blue  Block shows 10.0.75.0/28 route
 ####  Green  Block shows 192.168.1.0/24 route
 
 ## Tracert to test
