@@ -16,10 +16,10 @@ Hyper-V Virtual Ethernet Adapter#2 for Docker Desktop
 ## Route Print
 ![alt tag](https://i.imgur.com/dwvP7Ei.jpg)
 
-> Red Block shows default route
-> Organe Block shows 10.0.75.0/24 route
-> Blue  Block shows 10.0.75.0/32 route
-> Green  Block shows 192.168.1.0/24 route
+####  Red Block shows default route
+####  Organe Block shows 10.0.75.0/24 route
+####  Blue  Block shows 10.0.75.0/32 route
+####  Green  Block shows 192.168.1.0/24 route
 
 ## Tracert to test
 ![alt tag](https://i.imgur.com/FFyvCDt.jpg)
@@ -128,8 +128,8 @@ default via 192.168.65.1 dev eth0
 ``` 
 
 ### Traceroute to test
-> Cause default route via 192.168.65.1 dev eth0 issue -I
-> -I      Use ICMP ECHO instead of UDP datagrams
+#### Cause default route via 192.168.65.1 dev eth0 issue -I
+####  -I      Use ICMP ECHO instead of UDP datagrams
 
 ``` 
 / # traceroute -I -v 192.168.1.1
@@ -207,6 +207,9 @@ Reference
 
 * [How To Create A Transparent Network For Windows Containers March 30, 2017](https://www.ntweekly.com/2017/03/30/how-to-create-a-transparent-network-with-windows-containers/)
 
+* [【図解】Dockerの全体像を理解する -前編-](https://qiita.com/kotaro-dr/items/b1024c7d200a75b992fc)
+* [【図解】Dockerの全体像を理解する -中編-](https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a)
+* [【図解】Dockerの全体像を理解する -後編-](https://qiita.com/kotaro-dr/items/40106f13d47bfcbc2572)
 
 * [docker buildする際にhost側のssh keyを使ってbuildする](https://qiita.com/toyama0919/items/190eb19298e523094ba2)
 * [DockerコンテナのSSL化](https://qiita.com/KingSky/items/c407829991cb18a52d99)
