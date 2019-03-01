@@ -177,6 +177,26 @@ default via 172.17.0.1 dev eth0
 ``` 
 
 ``` 
+/ # traceroute -I 192.168.1.1
+traceroute to 192.168.1.1 (192.168.1.1), 30 hops max, 46 byte packets
+ 1  172.17.0.1 (172.17.0.1)  0.007 ms  0.012 ms  0.043 ms
+ 2  ZyXEL.Home (192.168.1.1)  6.764 ms  3.238 ms  2.201 ms
+/ # traceroute -I 192.168.1.104
+traceroute to 192.168.1.104 (192.168.1.104), 30 hops max, 46 byte packets
+ 1  172.17.0.1 (172.17.0.1)  0.006 ms  0.007 ms  0.004 ms
+ 2  LAPTOP-DDB6QQED.Home (192.168.1.104)  2.029 ms  1.006 ms  0.961 ms
+/ # traceroute -I 10.0.75.2
+traceroute to 10.0.75.2 (10.0.75.2), 30 hops max, 46 byte packets
+ 1  10.0.75.2 (10.0.75.2)  0.008 ms  0.007 ms  0.004 ms
+/ # traceroute -I 10.0.75.1
+traceroute to 10.0.75.1 (10.0.75.1), 30 hops max, 46 byte packets
+ 1  172.17.0.1 (172.17.0.1)  0.009 ms  0.007 ms  0.004 ms
+ 2  10.0.75.1 (10.0.75.1)  0.530 ms  1.694 ms  1.173 ms
+/ # arp -a
+? (172.17.0.1) at 02:42:58:85:51:90 [ether]  on eth0
+``` 
+
+``` 
 λ ipconfig
 
 Windows IP Configuration
