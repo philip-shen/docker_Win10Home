@@ -169,6 +169,12 @@ lo        Link encap:Local Loopback
 ``` 
 
 ``` 
+/ # iproute
+default via 172.17.0.1 dev eth0
+172.17.0.0/16 dev eth0 scope link  src 172.17.0.2
+``` 
+
+``` 
 λ ipconfig
 
 Windows IP Configuration
