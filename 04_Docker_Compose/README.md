@@ -1,9 +1,12 @@
 # Docker Compose
 Multi-containers environment creation by Docker Compose.
 
-Introdcution
-==============================
+# Introdcution
 Web system consists of various serves such as WEB serve, AP serve and DB serve so that manages by Docker Compose.
+
+## By docker-compose.yml definition, using command "docker-compose up" to start various containers.
+![alt tag](https://camo.qiitausercontent.com/bb16ede939c3772533715a916b0be87588d18b2c/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3230393930392f37626433323263352d336632332d393762352d653936372d6161663831343237633962312e706e67)
+* [【図解】Dockerの全体像を理解する -中編- 2019-01-22](https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a)
 
 # Commands related Docker 
 ``` 
@@ -344,7 +347,7 @@ o Docker Desktop 2.0.0.3
 Reference 
 ==============================
 * [WindowsでDocker Composeを使ってマルチコンテナ環境を作ってみる](https://qiita.com/fkooo/items/69a050da265c712763ec)
-
+* [【図解】Dockerの全体像を理解する -中編- 2019-01-22](https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a)
 
 * []()
 ![alt tag]()

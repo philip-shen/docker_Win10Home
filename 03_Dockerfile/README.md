@@ -1,8 +1,11 @@
 # DockerFile
 Environment definitions inside your container for Docker.
 
-Implementation
-==============================
+## To activate speific containers from spefic images by Dockerfiles
+![alt tag](https://camo.qiitausercontent.com/7de62ce86f2eba6862f8ca689603741a57d5bfc6/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3230393930392f37646130636238362d653330352d376663302d316665312d6437626534643836666662612e706e67)
+
+# Implementation
+
 * Execute command
 ``` 
 docker build -t image Dockerfile folder
@@ -350,6 +353,8 @@ o Docker Desktop 2.0.0.3
 Reference 
 ==============================
 * [Windowsで構成情報をDockerfileに定義してイメージを作成してみる](https://qiita.com/fkooo/items/53b2ea865e8c2c7fec27)
+* [【図解】Dockerの全体像を理解する -中編- 2019-01-22](https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a)
+
 * [Dockerfileについて](https://qiita.com/tanan/items/e79a5dc1b54ca830ac21)
 * [Dockerfileを極めて、Dockerマスターになろう！](https://qiita.com/soushiy/items/0945bcbc7ecce4822985)
 * [Dockerfile の基本と、CMD と ENTRYPOINT の違いを理解します。ハンズオン（Dockerfile活用編）](https://qiita.com/zembutsu/items/d146295cfcf69c205c1e#%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3dockerfile%E6%B4%BB%E7%94%A8%E7%B7%A8)
