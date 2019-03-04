@@ -33,13 +33,20 @@ ProductName: Windows 10 Home --> Windows 10 Pro
 Make sure that Hyper-V is enable by Control Panel on Win 10
 ![alt tag](https://i.imgur.com/6BOFoDH.jpg)
 
+## Step 5 
+Excute containers.bat on console by Administrator privelge.
+![alt tag](https://i.imgur.com/OWWGrUZ.jpg)
+
+> 3/4/2019 Prevent addtional exception happened to add.
+
+## Step 6
 Download the lastest version of Windows-installer from Docker website:
 * [https://www.docker.com/docker-windows](https://www.docker.com/products/docker-desktop)
 
 And install "Docker for Windows Installer.exe"
 ![alt tag](https://i.imgur.com/MQZ2kFV.jpg)
 
-## Step 5
+## Step 7
 Make sure Docker successful installation.
 
 ![alt tag](https://i.imgur.com/ac3U1m0.jpg)
@@ -83,8 +90,6 @@ Reference
 * [Dockerを使って機械学習の環境を作ろうとした話](https://qiita.com/oq-Yuki-op/items/3b7a0f1e27bbab56a95f)
 
 * [在 Win10 安裝 Jekyll 部落格網站產生器及簡單起步教學](https://blog.jaycetyle.com/2018/01/jekyll-on-win10/)
-* [[Tool] Cmder 設定 ](https://zwindr.blogspot.com/2016/01/cmder-setting-1.html)
-* [cmder 配置使用指南](https://www.jianshu.com/p/979db1a96f6d)
 
 * []()
 ![alt tag]()
