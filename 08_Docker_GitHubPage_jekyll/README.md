@@ -36,6 +36,86 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 34d8fdaec869        starefossen/github-pages:latest   "/bin/sh -c 'jekyll …"   16 hours ago        Up 18 seconds       80/tcp, 0.0.0.0:80->4000/tcp   github-pages_site_1
 ```
 
+# Jekyll Bootstrap
+* [利用Jekyll Bootstrap 快速建立Blog 2014-01-12](https://wcc723.github.io/jekyll/2014/01/12/jekyll-bootstrap/ )
+
+## Download and Install Jekyll Bootstrap
+
+### Download Zip file of Jekyll Bootstrap
+![alt tag](https://wcc723.github.io/images/2014-01-02_170007.png)
+
+### Unzip Zip file of Jekyll Bootstrap and copy all files under foloder app
+![alt tag](https://wcc723.github.io/images/2014-01-02_170143.png)
+
+### docker run "starefossen/github-pages" image
+```
+d:\project\docker\github-pages
+(MoneyHunter) λ docker run -t --rm -v %cd%/app:/usr/src/app -p "80:4000" starefossen/github-pages
+Configuration file: none
+            Source: /usr/src/app
+       Destination: /_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.087 seconds.
+ Auto-regeneration: enabled for '/usr/src/app'
+    Server address: http://0.0.0.0:4000
+  Server running... press ctrl-c to stop.
+      Regenerating: 2 file(s) changed at 2019-03-09 09:42:02
+                    _drafts/jekyll-introduction-draft.md
+                    _includes/JB/analytics
+                    ...done in 0.0124364 seconds.
+~~省略~~
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css' not found.
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css' not found.
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js' not found.
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css' not found.
+[2019-03-09 09:42:15] ERROR `/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js' not found. 
+
+[2019-03-09 10:14:41] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+[2019-03-09 10:14:41] ERROR `/favicon.ico' not found.
+[2019-03-09 10:17:03] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+[2019-03-09 10:17:04] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+[2019-03-09 10:17:06] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+[2019-03-09 10:17:07] ERROR `/assets/themes/bootstrap-3/css/style.css' not found.
+```
+
+### Create subfolder bootstrap-3 under /assets/themes and put folders bootstrap and css under subfolder bootstrap-3
+![alt tag](https://i.imgur.com/9ko4GUD.jpg)
+
+```
+      Regenerating: 8 file(s) changed at 2019-03-09 10:13:51
+                    assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css
+                    assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css
+                    assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css
+                    assets/themes/bootstrap-3/bootstrap/fonts/glyphicons-halflings-regular.eot
+                    assets/themes/bootstrap-3/bootstrap/fonts/glyphicons-halflings-regular.svg
+                    assets/themes/bootstrap-3/bootstrap/fonts/glyphicons-halflings-regular.ttf
+                    assets/themes/bootstrap-3/bootstrap/fonts/glyphicons-halflings-regular.woff
+                    assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js
+                    ...done in 1.6939761 seconds.
+
+      Regenerating: 8 file(s) changed at 2019-03-09 10:13:52
+                    assets/themes/bootstrap/css/bootstrap-theme.min.css
+                    assets/themes/bootstrap/css/bootstrap.min.css
+                    assets/themes/bootstrap/css/bs-sticky-footer.css
+                    assets/themes/bootstrap/fonts/glyphicons-halflings-regular.eot
+                    assets/themes/bootstrap/fonts/glyphicons-halflings-regular.svg
+                    assets/themes/bootstrap/fonts/glyphicons-halflings-regular.ttf
+                    assets/themes/bootstrap/fonts/glyphicons-halflings-regular.woff
+                    assets/themes/bootstrap/js/bootstrap.min.js
+                    ...done in 0.6529467 seconds.
+
+      Regenerating: 1 file(s) changed at 2019-03-09 10:18:27
+                    assets/themes/bootstrap-3/css/style.css
+                    ...done in 0.5091941 seconds.
+
+      Regenerating: 1 file(s) changed at 2019-03-09 10:18:27
+                    assets/themes/css/style.css
+                    ...done in 0.5934166 seconds.                    
+```
+
+###
 
 # Directory of Jekyll
 ```
@@ -238,8 +318,42 @@ _config.ymlに url: localhost のような指定をすればローカルでは�
 ので、_config.yml には記述なしとし、site.url がgithub.ioのドメインであればそのまま出力、そうでなければlocalhostにするようにしました。
 
 # Troubleshooting
+
 ## mkdir /host_mnt/d: file exists
 ![alt tag](https://i.imgur.com/jM5k4IW.jpg)
+
+## ERROR `/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css' not found
+* [ERROR `/assets/themes/bootstrap/css/bootstrap.min.css' not found 22 Mar 2016](https://github.com/plusjade/jekyll-bootstrap/issues/302)
+```
+Thank u!
+I create a folder bootstrap-3 and put bootstrap in there. Now it works well.
+```
+* [fixes bad path to old CSS/JS files (#302) #303](https://github.com/plusjade/jekyll-bootstrap/pull/303/commits/097e3305ec288aea14c324082351fbf54d2e5ef4)
+
+##  Could not find gem 'pygments.rb' in any of the gem sources listed in your Gemfile. (Bundler::GemNotFound)
+* [Could not find gem 'jekyll-sitemap' in any of the gem sources listed in your Gemfile or available on this machine. (Bundler::GemNotFound) #4972 1 Jun 2016](https://github.com/jekyll/jekyll/issues/4972)
+```
+$ sudo gem install jekyll-sitemap
+$ sudo gem install pygments.rb
+$ gem install bundler
+$ bundle install
+```
+
+
+```
+/usr/src/app # gem install pygments.rb
+Fetching: multi_json-1.13.1.gem (100%)
+Successfully installed multi_json-1.13.1
+Fetching: pygments.rb-1.2.1.gem (100%)
+Successfully installed pygments.rb-1.2.1
+2 gems installed
+```
+
+## bootstrap 4.2.1 `bundle install` error occurred while installing ffi (1.10.0)
+* [bootstrap 4.2.1 `bundle install` error occurred while installing ffi (1.10.0) Jan 13,2019](https://stackoverflow.com/questions/54165136/bootstrap-4-2-1-bundle-install-error-occurred-while-installing-ffi-1-10-0)
+```
+The suggestion by vladhadzhiyski to run brew reinstall libffi worked for me:
+```
 
 # Reference
 * [docker-compose（dockerで十分）でGitHub Pagesローカル開発環境 2018-02-25](https://qiita.com/mkgask/items/7578bb0f9c646dbb68d0)
@@ -282,7 +396,14 @@ $ bundle exec jekyll s
 這時候可能會遇到的錯誤
 
 如果github page在此時如果編譯錯誤，他會發一封mail到用戶的信箱，如下圖，這是沒有驗證過的信箱…，要驗證後的信箱他才會正常的編譯。
+```
 ![alt tag](https://wcc723.github.io/images/2014-01-12_114728.png)
+
+* [簡單筆記一下 RubyGem, Gem, RVM, Gemfile, bundler December 15, 2014](http://yulin-learn-web-dev.logdown.com/posts/246089-brief-notes-of-rubygem-gem-rvm-gemfile-bundler)
+```
+Gemfile
+
+Gemfile 在每個 Rails 新專案用 rails new 這個指令時會跟著產生，裡頭定義這個 rails app 用了哪些 gem 和指定版本
 ```
 
 * [在Winodws上運作jekyll 2014-01-13](https://wcc723.github.io/jekyll/2014/01/13/windows-jekyll-server/)
