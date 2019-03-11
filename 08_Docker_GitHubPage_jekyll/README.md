@@ -2,38 +2,51 @@
 Create personal GitHub Pages in github.io domain.
 Setup up individual GitHub Pages site locally with Jekyll by Docker more quickly and easily.
 
-# What kind of Docker images Selection
-starefossen/github-pages - Docker Hub
-https://hub.docker.com/r/starefossen/github-pages/
-
-Dockerfile
-https://hub.docker.com/r/starefossen/github-pages/
-
-Cause download ranking of GitHub Pages is top.
-
 # docker-compose.yml
 ```docker-compose.yml
 version: "3"
 services:
     site:
-        image: starefossen/github-pages:latest
+        image: jekyll/jekyll
+        container_name: github-blog-local
         volumes:
             - /host_mnt/d/project/docker/github-pages/app:/usr/src/app
+        command: /bin/sh -c 'jekyll serve -s /usr/src/app --watch'    
         ports:
-            - 80:4000
+            - 4000:4000
         tty: true
 ```
 
 ## build images
 ```
 D:\project\docker\github-pages
-λ  docker-compose --file docker-compose.yml up -d
-Starting github-pages_site_1 ... done
+λ  docker-compose --file docker-compose.yml up
+Pulling site (jekyll/jekyll:)...
+latest: Pulling from jekyll/jekyll
+8e402f1a9c57: Pull complete
+3cf24f050bbd: Pull complete
+164ebf0a871b: Pull complete
+781bcfdb7fef: Pull complete
+102e0bff17f5: Pull complete
+92058a7b0af8: Pull complete
+Recreating github-blog-local ... done
+Attaching to github-blog-local
+github-blog-local | ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-linux-musl]
+github-blog-local | Configuration file: /usr/src/app/_config.yml
+github-blog-local |        Deprecation: The 'gems' configuration option has been renamed to 'plugins'. Please update your config file accordingly.
+github-blog-local |             Source: /usr/src/app
+github-blog-local |        Destination: /srv/jekyll/_site
+github-blog-local |  Incremental build: disabled. Enable with --incremental
+github-blog-local |       Generating...
+github-blog-local |                     done in 1.361 seconds.
+github-blog-local |  Auto-regeneration: enabled for '/usr/src/app'
+github-blog-local |     Server address: http://0.0.0.0:4000
+github-blog-local |   Server running... press ctrl-c to stop.
 
 D:\project\docker\github-pages
 λ docker ps
 CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                          NAMES
-34d8fdaec869        starefossen/github-pages:latest   "/bin/sh -c 'jekyll …"   16 hours ago        Up 18 seconds       80/tcp, 0.0.0.0:80->4000/tcp   github-pages_site_1
+725852bfc928        jekyll/jekyll       "/usr/jekyll/bin/ent…"   12 minutes ago      Up 5 minutes        0.0.0.0:4000->4000/tcp, 35729/tcp   github-blog-local
 ```
 
 # Jekyll Bootstrap
@@ -115,7 +128,8 @@ Configuration file: none
                     ...done in 0.5934166 seconds.                    
 ```
 
-###
+### Open Browser to keyin http://localhost:4000/
+![alt tag](https://i.imgur.com/l11EzEe.jpg)
 
 # Directory of Jekyll
 ```
@@ -361,6 +375,21 @@ The suggestion by vladhadzhiyski to run brew reinstall libffi worked for me:
 * [Setting up your GitHub Pages site locally with Jekyll - User Documentation](https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll)
 
 * [jekyllのローカル開発環境(プレビュー) 2017-11-11](https://qiita.com/t_732_twit/items/be50b8bded0d157ad5c9)
+```docker-compose.yml
+
+version: '2'
+services:
+
+  api:
+    image: jekyll/jekyll
+    container_name: github-blog-local
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'jekyll serve -s /usr/src/app --watch'
+    ports:
+      - "4000:4000"
+```
 * [Creating an Engineering Blog with GitHub Pages 29 Nov 2016 ](https://cardano.github.io/blog/2016/11/29/creating-an-engineering-blog)
 * [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/)
 * [Build A Blog With Jekyll And GitHub Pages August 1, 2014](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/)
@@ -429,6 +458,7 @@ self.content = File.read(File.join(base, name),:encoding=>"utf-8")
 * [在Jekyll設定自己的留言板 2014-01-14](https://wcc723.github.io/jekyll/2014/01/14/jekyll-disqus/)
 * [在Jekyll中調整屬於自己的Template 2014-01-15](https://wcc723.github.io/jekyll/2014/01/15/jekyll-define-page/)
 
+* [Jekyll serve suddenly switched from localhost to 0.0.0.0 - any fix? Jun 8 '14 ](https://stackoverflow.com/questions/24108302/jekyll-serve-suddenly-switched-from-localhost-to-0-0-0-0-any-fix)
 
 
 * []()
