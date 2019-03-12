@@ -460,6 +460,7 @@ self.content = File.read(File.join(base, name),:encoding=>"utf-8")
 
 * [Jekyll serve suddenly switched from localhost to 0.0.0.0 - any fix? Jun 8 '14 ](https://stackoverflow.com/questions/24108302/jekyll-serve-suddenly-switched-from-localhost-to-0-0-0-0-any-fix)
 
+* [如何更換jekyll 主題 2016-10-31](https://blog.jxtsai.info/2016/10/31/jekyll-theme/)
 
 * []()
 ![alt tag]()
