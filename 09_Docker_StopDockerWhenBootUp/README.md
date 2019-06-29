@@ -13,15 +13,15 @@ Table of Contents
 Setup Procedures
 ==============================
 在一個非常偶然(靈光一閃)的時情況下，想到，資深一些的 IT 人員應該都知道有個 msconfig (在 Windows 10 可以直接搜尋「系統設定」或輸入「msconfig」)的組態工具，以前經常拿來設定多重開機的選單，或做一些進階設定與除錯。它裡面就有一個預設「啟動」選單，可以勾選開機要載入的應用程式的選項。
-# MSCONFIG  
+## MSCONFIG  
 ![alt tag](https://i.imgur.com/Cu3lXBX.jpg)  
-# Task Manager  
+## Task Manager  
 ![alt tag](https://i.imgur.com/f0XloWH.jpg)  
-# StartUp on Setting   
+## StartUp on Setting   
 ![alt tag](https://i.imgur.com/0wnbCQN.jpg)  
-# Disable StartUp on Setting   
+## Disable StartUp on Setting   
 ![alt tag](https://i.imgur.com/sHrCdku.jpg)
-# Check Task Manager  
+## Check Task Manager  
 ![alt tag](https://i.imgur.com/p1sb6F5.jpg)  
 
 Troubleshooting
