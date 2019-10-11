@@ -8,6 +8,7 @@ Samba usage on Docker at Windows
 [routeの設定](#route%E3%81%AE%E8%A8%AD%E5%AE%9A)  
 [補足](#%E8%A3%9C%E8%B6%B3)  
 
+[Reference](#reference)
 
 [Docker for Windowsでsambaを使う Apr 11, 2018](https://qiita.com/KNaito/items/0d67fc2293e15c3960fc)  
 ```
@@ -97,11 +98,23 @@ route addコマンドは、Windowsをリブートすると消えてしまうの�
 # Troubleshooting
 
 
-# Reference
+# Reference  
+* [Docker を Linux 以外で使うことは幸せにならない](https://qiita.com/il-m-yamagishi/items/1d2344a32744f56a8cc6)
+[Docker for Windows](https://qiita.com/il-m-yamagishi/items/1d2344a32744f56a8cc6#docker-for-windows)  
+Hyper-V 上で動かす...
+
+  Samba IO やっぱり遅い
+      [Shared Volumes Slow · Issue #188 · docker/for-win](https://github.com/docker/for-win/issues/188)  
+  NAT の調子が悪くなることがあるという話
+
+
 ```
+
 ```
 
 
+```
+```
 * []()
 ![alt tag]()  
 
