@@ -12,7 +12,7 @@ Docker tutorial that is installed on Win10 Home by Hyper-V rather than toolbox
 [Step 5](#step-5)  
 [Step 6](#step-6)  
 [Step 7](#step-7)  
-[Update](#update)  
+[Update-WSL2](#update-wsl2)  
 
 
 [TroubleShooting](#troubleshooting)  
@@ -80,7 +80,7 @@ Setup "Shared Drives"
 
 Enjoy Docker!
 
-## Update  
+## Update-WSL2   
 [Installing Docker on Windows 10 Home](https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/64)  
 [Install Docker On Windows 10 Home](https://gist.github.com/talon/4191def376c9fecae78815454bfe661c)
 ``` 
