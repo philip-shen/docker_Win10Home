@@ -12,6 +12,8 @@ Docker tutorial that is installed on Win10 Home by Hyper-V rather than toolbox
 [Step 5](#step-5)  
 [Step 6](#step-6)  
 [Step 7](#step-7)  
+[Update](#update)  
+
 
 [TroubleShooting](#troubleshooting)  
 [Environment](#environment)  
@@ -77,6 +79,19 @@ Setup "Shared Drives"
 ![alt tag](https://i.imgur.com/nkCitB2.jpg)
 
 Enjoy Docker!
+
+## Update  
+[Installing Docker on Windows 10 Home](https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/64)  
+[Install Docker On Windows 10 Home](https://gist.github.com/talon/4191def376c9fecae78815454bfe661c)
+``` 
+    Hi!
+
+    We have now released a version of Docker Desktop Edge that allows users of Windows Insider Preview (Win Home 19018 or higher) to use Docker Desktop with WSL 2. If you are trying this out and have issues feel free to drop issues on the for-win Github Repo!
+
+    Thanks Ben
+``` 
+– https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/70
+
 
 TroubleShooting
 ==============================
