@@ -1,23 +1,48 @@
+
+Table of Contents
+=================
+   * [Table of Contents](#table-of-contents)
+   * [Docker_Win10Home](#docker_win10home)
+   * [Docker related images of foundation function](#docker-related-images-of-foundation-function)
+   * [Implementation](#implementation)
+      * [Step 1](#step-1)
+      * [Step 2](#step-2)
+      * [Step 3](#step-3)
+      * [Step 4](#step-4)
+      * [Step 5](#step-5)
+      * [Step 6](#step-6)
+      * [Step 7](#step-7)
+      * [Windows Subsystem for Linux Installation Guide for Windows 10](#windows-subsystem-for-linux-installation-guide-for-windows-10)
+         * [Simplified install](#simplified-install)
+         * [Manual install](#manual-install)
+            * [Step 1 - Enable the Windows Subsystem for Linux](#step-1---enable-the-windows-subsystem-for-linux)
+            * [Step 2 - Check requirements for running WSL 2](#step-2---check-requirements-for-running-wsl-2)
+            * [Step 3 - Enable Virtual Machine feature](#step-3---enable-virtual-machine-feature)
+            * [Step 4 - Download the Linux kernel update package](#step-4---download-the-linux-kernel-update-package)
+            * [Step 5 - Set WSL 2 as your default version](#step-5---set-wsl-2-as-your-default-version)
+            * [Step 6 - Install your Linux distribution of choice  ```](#step-6---install-your-linux-distribution-of-choice--)
+            * [Install Windows Terminal (optional)](#install-windows-terminal-optional)
+            * [Set your distribution version to WSL 1 or WSL 2](#set-your-distribution-version-to-wsl-1-or-wsl-2)
+            * [Troubleshooting installation](#troubleshooting-installation)
+               * [Installation failed with error 0x80070003](#installation-failed-with-error-0x80070003)
+               * [WslRegisterDistribution failed with error 0x8007019e](#wslregisterdistribution-failed-with-error-0x8007019e)
+               * [Installation failed with error 0x80070003 or error 0x80370102](#installation-failed-with-error-0x80070003-or-error-0x80370102)
+               * [Error when trying to upgrade: Invalid command line option: wsl --set-version Ubuntu 2](#error-when-trying-to-upgrade-invalid-command-line-option-wsl---set-version-ubuntu-2)
+               * [The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.](#the-requested-operation-could-not-be-completed-due-to-a-virtual-disk-system-limitation-virtual-hard-disk-files-must-be-uncompressed-and-unencrypted-and-must-not-be-sparse)
+               * [The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.](#the-term-wsl-is-not-recognized-as-the-name-of-a-cmdlet-function-script-file-or-operable-program)
+               * [Error: Windows Subsystem for Linux has no installed distributions.](#error-windows-subsystem-for-linux-has-no-installed-distributions)
+               * [Error: This update only applies to machines with the Windows Subsystem for Linux.](#error-this-update-only-applies-to-machines-with-the-windows-subsystem-for-linux)
+               * [Error: WSL 2 requires an update to its kernel component. For information please visit <a href="https://aka.ms/wsl2kernel" rel="nofollow">https://aka.ms/wsl2kernel</a> .](#error-wsl-2-requires-an-update-to-its-kernel-component-for-information-please-visit-httpsakamswsl2kernel-)
+      * [Update-WSL2](#update-wsl2)
+   * [TroubleShooting](#troubleshooting)
+   * [Environment](#environment)
+   * [Reference](#reference)
+   * [Table of Contents](#table-of-contents-1)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+
 # Docker_Win10Home
 Docker tutorial that is installed on Win10 Home by Hyper-V rather than toolbox
-
-# Table of Contents  
-[Docker related images of foundation function](#docker-related-images-of-foundation-function)  
-
-[Implementation](#implementation)  
-[Step 1](#step-1)  
-[Step 2](#step-2)  
-[Step 3](#step-3)  
-[Step 4](#step-4)  
-[Step 5](#step-5)  
-[Step 6](#step-6)  
-[Step 7](#step-7)  
-[Update-WSL2](#update-wsl2)  
-
-
-[TroubleShooting](#troubleshooting)  
-[Environment](#environment)  
-[Reference](#reference)  
 
 Docker related images of foundation function
 ==============================
@@ -80,6 +105,91 @@ Setup "Shared Drives"
 
 Enjoy Docker!
 
+## Windows Subsystem for Linux Installation Guide for Windows 10  
+[Windows Subsystem for Linux Installation Guide for Windows 10 06/09/2021](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+### Simplified install 
+``` 
+The wsl --install simplified install command requires that you join the Windows Insiders Program and install a preview build of Windows 10 (OS build 20262 or higher), but eliminates the need to follow the manual install steps. All you need to do is open a command window with administrator privileges and run wsl --install, after a restart you will be ready to use WSL.
+``` 
+
+### Manual install  
+
+#### Step 1 - Enable the Windows Subsystem for Linux  
+``` 
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+``` 
+
+#### Step 2 - Check requirements for running WSL 2  
+```
+    For x64 systems: Version 1903 or higher, with Build 18362 or higher.
+    For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
+    Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
+``` 
+``` 
+To check your version and build number, select Windows logo key + R, type winver, select OK. Update to the latest Windows version in the Settings menu.
+``` 
+
+#### Step 3 - Enable Virtual Machine feature  
+``` 
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+``` 
+
+#### Step 4 - Download the Linux kernel update package  
+[WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+
+#### Step 5 - Set WSL 2 as your default version  
+``` 
+wsl --set-default-version 2
+``` 
+
+#### Step 6 - Install your Linux distribution of choice  ``` 
+
+``` 
+Open the Microsoft Store and select your favorite Linux distribution.
+``` 
+<img src="https://docs.microsoft.com/en-us/windows/wsl/media/store.png" width="700" height="500">  
+
+``` 
+You will then need to create a user account and password for your new Linux distribution.
+``` 
+<img src="https://docs.microsoft.com/en-us/windows/wsl/media/ubuntuinstall.png" width="900" height="200">  
+
+#### Install Windows Terminal (optional)
+<img src="https://docs.microsoft.com/en-us/windows/wsl/media/terminal.png" width="800" height="500">  
+
+
+#### Set your distribution version to WSL 1 or WSL 2  
+``` 
+wsl --list --verbose
+``` 
+
+``` 
+wsl --set-version <distribution name> <versionNumber>
+``` 
+
+``` 
+Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
+``` 
+
+``` 
+wsl --set-default-version 2
+``` 
+
+#### Troubleshooting installation  
+[Troubleshooting installation](https://docs.microsoft.com/en-us/windows/wsl/install-win10#troubleshooting-installation)
+
+##### Installation failed with error 0x80070003  
+##### WslRegisterDistribution failed with error 0x8007019e  
+##### Installation failed with error 0x80070003 or error 0x80370102   
+##### Error when trying to upgrade: Invalid command line option: wsl --set-version Ubuntu 2  
+##### The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.  
+##### The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.  
+##### Error: Windows Subsystem for Linux has no installed distributions.  
+##### Error: This update only applies to machines with the Windows Subsystem for Linux.  
+##### Error: WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel . 
+
+
 ## Update-WSL2   
 [Installing Docker on Windows 10 Home](https://forums.docker.com/t/installing-docker-on-windows-10-home/11722/64)  
 [Install Docker On Windows 10 Home](https://gist.github.com/talon/4191def376c9fecae78815454bfe661c)
@@ -124,3 +234,8 @@ Reference
 
 * []()
 ![alt tag]()
+
+<img src="" width="400" height="500">  
+
+
+
