@@ -82,7 +82,7 @@ Excute containers.bat on console by Administrator privelge.
 
 > 3/4/2019 Prevent addtional exception happened to add.
 
-## Step 6
+## Step 6 Docker Installation  
 Download the lastest version of Windows-installer from Docker website:
 * [https://www.docker.com/docker-windows](https://www.docker.com/products/docker-desktop)
 
